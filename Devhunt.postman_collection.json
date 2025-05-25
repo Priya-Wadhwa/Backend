@@ -1,0 +1,1790 @@
+{
+	"info": {
+		"_postman_id": "87abdae0-b58f-4ed2-8d2e-b6351f20a84a",
+		"name": "Devhunt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13530824"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"jwt\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "admin@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}admin/login",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "661a5cf2bd20003fcca9a710",
+											"type": "text"
+										},
+										{
+											"key": "currentPassword",
+											"value": "1234",
+											"type": "text"
+										},
+										{
+											"key": "newPassword",
+											"value": "123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}admin/change-password",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Clients",
+					"item": [
+						{
+							"name": "All Clients",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "65ec6e2b6155e5e62221669",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}admin/client/all",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"client",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single Client",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQWRtaW4iLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTcxMTA4Mjc1MywiZXhwIjoxNzExMTAwNzUzfQ.6fIQhGL-EZYimcFQOFgsrPncSmdTOS925rynQW6sCkM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "65fd0c5f15bc3a5f18aa0411",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}admin/client/single",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"client",
+										"single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Client Status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "65ec6e2b6155e5e622216694",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "true",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}admin/client/change-status",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"client",
+										"change-status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Freelancers",
+					"item": [
+						{
+							"name": "All Freelancers",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}admin/freelancer/all",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"freelancer",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single Freelancer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "65ed89a832abbaa520386e77",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}admin/freelancer/single",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"freelancer",
+										"single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Freelancer Status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "65ed89a832abbaa520386e74",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "false",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:3000/admin/freelancer/change-status",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"admin",
+										"freelancer",
+										"change-status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "View Category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{baseURL}}admin/category/all",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"category",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "View single",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "661a652b9d6f802c6895e4ed",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}admin/category/single",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"category",
+										"single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "UIUX",
+											"type": "text"
+										},
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "uiux.avif"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}admin/category/create",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"category",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_id",
+											"value": "661a652b9d6f802c6895e4ed",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "UI/UX Designer",
+											"type": "text"
+										},
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "mean.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}admin/category/update",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"category",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Category Status",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}admin/category/change-status",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"category",
+										"change-status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Projects",
+					"item": [
+						{
+							"name": "All Projects",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}admin/project/all",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"project",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single Project",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "65e164561317a22b6110cde3",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}admin/project/single",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"project",
+										"single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Project",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "65f56444e74e7930aab7227c",
+											"type": "text"
+										},
+										{
+											"key": "status",
+											"value": "true",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}admin/project/delete",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"project",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Bids",
+					"item": [
+						{
+							"name": "All Bids",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}admin/bids",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"bids"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single Bid",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}admin/bid-single",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"bid-single"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Dashboard",
+					"item": [
+						{
+							"name": "view",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}admin/dashboard",
+									"host": [
+										"{{baseURL}}admin"
+									],
+									"path": [
+										"dashboard"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"jwt\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Alex",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "alex12344@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "5678",
+											"type": "text"
+										},
+										{
+											"key": "companyName",
+											"value": "Microsoft",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "Ohio",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "USA",
+											"type": "text"
+										},
+										{
+											"key": "contact",
+											"value": "(202) 588-6500",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}client/register",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"jwt\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "alex12344@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "5678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}client/login",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "65f564b8e74e7930aab72283",
+											"type": "text"
+										},
+										{
+											"key": "currentPassword",
+											"value": "5678",
+											"type": "text"
+										},
+										{
+											"key": "newPassword",
+											"value": "5678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}client/change-password",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Projects",
+					"item": [
+						{
+							"name": "Create Project",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "userId",
+											"value": "65ec6e2b6155e5e622216694",
+											"type": "text"
+										},
+										{
+											"key": "categoryId",
+											"value": "65ec604881a119608c9b9747",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "Create College Website",
+											"type": "text"
+										},
+										{
+											"key": "technology",
+											"value": "html,css,javascript,react",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Some Text........",
+											"type": "text"
+										},
+										{
+											"key": "duration",
+											"value": "2 Months",
+											"type": "text"
+										},
+										{
+											"key": "budget",
+											"value": "500",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}client/project/create",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"project",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All Projects",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}client/project/all",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"project",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single Project",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "65f51efcf60c459990c2b002",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}client/project/single",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"project",
+										"single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Project",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "65f56444e74e7930aab7227c",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "Some Random Text.....",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}client/project/update",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"project",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Project",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "65f56444e74e7930aab7227c",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}client/project/delete",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"project",
+										"delete"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Bids",
+					"item": [
+						{
+							"name": "All Bids",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}client/bids",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"bids"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single Bid",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}client/bid-single",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"bid-single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Accept/Decline Bid",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Single Client",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "65f564b9e74e7930aab72286",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}client/client-single",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"client-single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single Freelancer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_id",
+											"value": "65ee8f3e524a53362f2cdc7d",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}client/freelancer-single",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"freelancer-single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update client",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "1237734.jpg"
+										},
+										{
+											"key": "_id",
+											"value": "65f564b8e74e7930aab72283",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}client/update",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Chat",
+					"item": [
+						{
+							"name": "Create Chat",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{baseURL}}client/chat",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"chat"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "View Chat",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "userId",
+											"value": "65ec6e2b6155e5e622216694",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}client/chat-view",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"chat-view"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single Chat",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "toId",
+											"value": "65fd0d6015bc3a5f18aa424",
+											"type": "text"
+										},
+										{
+											"key": "fromId",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}client/chat-single",
+									"host": [
+										"{{baseURL}}client"
+									],
+									"path": [
+										"chat-single"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Freelancer",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"jwt\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "jonas1234@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "1234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}freelancer/login",
+									"host": [
+										"{{baseURL}}freelancer"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.environment.set(\"jwt\", pm.response.json().token);"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "jonas S",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "jonas1234@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "jonas123",
+											"type": "text"
+										},
+										{
+											"key": "categoryId",
+											"value": "65ec604881a119608c9b9747",
+											"type": "text"
+										},
+										{
+											"key": "contact",
+											"value": "7696779586",
+											"type": "text"
+										},
+										{
+											"key": "",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}freelancer/register",
+									"host": [
+										"{{baseURL}}freelancer"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "currentPassword",
+											"value": "jonas123",
+											"type": "text"
+										},
+										{
+											"key": "_id",
+											"value": "65fd0d6015bc3a5f18aa0422",
+											"type": "text"
+										},
+										{
+											"key": "newPassword",
+											"value": "1234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}freelancer/change-password",
+									"host": [
+										"{{baseURL}}freelancer"
+									],
+									"path": [
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Projects",
+					"item": [
+						{
+							"name": "All Projects",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}freelancer/project/all",
+									"host": [
+										"{{baseURL}}freelancer"
+									],
+									"path": [
+										"project",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single Project",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}freelancer/project/single",
+									"host": [
+										"{{baseURL}}freelancer"
+									],
+									"path": [
+										"project",
+										"single"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Bids",
+					"item": [
+						{
+							"name": "Create Bid",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": []
+								},
+								"url": {
+									"raw": "{{baseURL}}freelancer/create-bid",
+									"host": [
+										"{{baseURL}}freelancer"
+									],
+									"path": [
+										"create-bid"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All Bids",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single Bid",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}freelancer/bid-single",
+									"host": [
+										"{{baseURL}}freelancer"
+									],
+									"path": [
+										"bid-single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Bid",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}freelancer/bid-update",
+									"host": [
+										"{{baseURL}}freelancer"
+									],
+									"path": [
+										"bid-update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Single Client",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}freelancer/client-single",
+									"host": [
+										"{{baseURL}}freelancer"
+									],
+									"path": [
+										"client-single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single Freelancer",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}freelancer/freelancer-single",
+									"host": [
+										"{{baseURL}}freelancer"
+									],
+									"path": [
+										"freelancer-single"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Freelancer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{jwt}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseURL}}freelancer/update",
+									"host": [
+										"{{baseURL}}freelancer"
+									],
+									"path": [
+										"update"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Chat",
+					"item": [
+						{
+							"name": "Create Chat",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "clientId",
+											"value": "65ec6e2b6155e5e622216694",
+											"type": "text"
+										},
+										{
+											"key": "freelancerId",
+											"value": "65fd0d6015bc3a5f18aa0422",
+											"type": "text"
+										},
+										{
+											"key": "fromId",
+											"value": "65ec6e2b6155e5e622216694",
+											"type": "text"
+										},
+										{
+											"key": "message",
+											"value": "am good how are you:)",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}freelancer/chat",
+									"host": [
+										"{{baseURL}}freelancer"
+									],
+									"path": [
+										"chat"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "View Chat",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "userId",
+											"value": "65fd0d6015bc3a5f18aa0422",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseURL}}freelancer/chat-view",
+									"host": [
+										"{{baseURL}}freelancer"
+									],
+									"path": [
+										"chat-view"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single Chat",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{jwt}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseURL}}freelancer/chat-single",
+									"host": [
+										"{{baseURL}}freelancer"
+									],
+									"path": [
+										"chat-single"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
