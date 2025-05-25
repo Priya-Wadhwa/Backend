@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const DB = 'mongodb://127.0.0.1:27017/devhunt';
+const DB = "mongodb+srv://wpriya901:Dmurv9mVffxunORc@devhunt.gjxej9y.mongodb.net/";
 
 mongoose
   .connect(DB)
